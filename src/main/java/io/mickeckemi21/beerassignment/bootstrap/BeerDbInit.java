@@ -30,7 +30,7 @@ public class BeerDbInit implements CommandLineRunner {
         int i = 0;
         final Collection<CompletableFuture<PunkApiBeer>> completableFutures = new ArrayList<>();
         while (i < n) {
-            completableFutures.add(asyncPunkApiClient.getRandomBeer());
+            completableFutures.add(this.asyncPunkApiClient.getRandomBeer());
             i++;
         }
 
@@ -43,7 +43,7 @@ public class BeerDbInit implements CommandLineRunner {
                 final Beer beer = this.beerMapper.punkApiBeerToBeer(punkApiBeerCompletableFuture.get());
                 this.beerRepository.save(beer);
             } catch (Exception ex) {
-                throw new DatabaseInitializationException("Exception occurred when tring to initialize database", ex);
+                throw new DatabaseInitializationException("Exception occurred when trying to initialize database", ex);
             }
         });
     }
