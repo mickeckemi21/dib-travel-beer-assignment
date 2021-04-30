@@ -11,4 +11,4 @@ ENV PORT=8080
 
 EXPOSE $PORT
 
-CMD java -jar ./target/beer-assignment-0.0.1-SNAPSHOT.jar --server.port=$PORT
+CMD ["sh", "-c", "java -jar ./target/beer-assignment-0.0.1-SNAPSHOT.jar --server.port=$PORT"]
